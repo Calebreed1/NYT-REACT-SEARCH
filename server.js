@@ -6,7 +6,6 @@ const routes = require("./routes");
 let db = require("./models"); // Require all models
 
 let PORT = process.env.PORT || 8080;
-let mongooseConnection = mongoose.connection;
 
 let app = express();
 
@@ -16,17 +15,13 @@ app.use(express.static("client/build")); // Serve Static React Pages
 app.use(bodyParser.text());
 app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
-mongoose.Promise = global.Promise; // Set up promises with mongoose
+mongoose.Promise = Promise;
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/obscure-fjord-68876";
 
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
-mongooseConnection.on('error', console.error.bind(console, 'connection error:'));
 
-mongooseConnection.once('open', function() {
-  console.log(`Sucessfully Connected to Mongo DB !`); // If Connection is successful, Console.log(Message)
-});
 
 var cors = require("cors");
 app.use(function(req, res, next) {
