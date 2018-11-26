@@ -18,7 +18,7 @@ app.use(bodyParser.json({type: "application/vnd.api+json"}));
 
 mongoose.Promise = global.Promise; // Set up promises with mongoose
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/obscure-fjord-68876";
 
 mongoose.connect(MONGODB_URI);
 
