@@ -19,7 +19,7 @@ app.use(bodyParser.json({type: "application/vnd.api+json"}));
 mongoose.Promise = global.Promise; // Set up promises with mongoose
 
 mongoose.connect( // Connect to the Mongo DB
-  process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds143738.mlab.com:43738/heroku_137ccmcw"
+  process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds129090.mlab.com:29090/heroku_wsxw0m8h"
 );
 
 mongooseConnection.on('error', console.error.bind(console, 'connection error:'));
